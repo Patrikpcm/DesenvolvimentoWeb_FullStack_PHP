@@ -1,0 +1,105 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+	font-family: "Trebuche MS", Helvetica, sans-serif;
+	background: #f3f3f3;
+}
+
+#navegacao{
+	background: #FFF;
+	border-bottom: 1px solid #d8d8d8;
+	height: 55px;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+}
+
+#area{
+	width: 720px;
+	margin: 0 auto;
+}
+
+#area-principal{
+	width: 720px;
+	margin: 65px auto 10px auto;
+}
+
+#menu{
+	float: right;
+	padding: 10px;
+	padding-top: 18px;
+	font-size: 15px;
+}
+
+#logo{
+	float: left;
+	padding: 10px;
+}
+
+#postagem{
+	background: #FFF;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+h2{
+	color: #b9c941;
+}
+
+/*************FORMATAÇÃO DE LINKS***********/
+
+/*decoração de texto*/
+a{
+	text-decoration: none;
+	padding: 5px;
+}
+
+/*Links não visitados*/
+a:link{
+	color: #838383;
+}
+
+/*Links visitados*/
+a:visited{
+	color: #838383;
+}
+
+/*Links hover*/
+a:hover{
+	background: #b9c941;
+	color: #FFF;
+}
+
+/*Links active*/
+a:active{
+	color: #535353;
+}
+/*************CLASSES************/
+
+.verde{
+	color: #b9c941;
+}
+
+.data-postagem{
+	font-size: 15px;
+	border-bottom: 1px solid #F4f4f4;
+	display: block;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.img-postagem{
+	float: left;
+	margin: 0px 10px 5px 0px;
+}
+
+.postado{
+	border-left: 5px solid #d8d8d8;
+	padding-left: 5px;
+	display: block;
+	margin-top: 10px;
+}

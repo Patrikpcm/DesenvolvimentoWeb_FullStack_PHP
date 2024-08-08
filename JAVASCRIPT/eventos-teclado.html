@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Eventos - teclado</title>
+
+	<script type="text/javascript">
+		//onkeydown quando a tecla é pressionada
+		//onkeypress idem o anterior mas não captura todas as teclas como ctrl, shift, esc, etc.
+		//onkeyup aciona quando a tecla é liberada
+
+
+		//onkeydown
+		function msgBoasVindasOKD(){
+			alert('Bem vindo ao meu site - OnKeyDown');
+		}
+
+		//onkeypress
+		function msgBoasVindasOKP(){
+			alert('Bem vindo ao meu site - OnKeyPress');
+		}
+
+		//onkeyup
+		function msgBoasVindasOKU(){
+			alert('Bem vindo ao meu site - OnKeyUp');
+		}
+
+	</script>
+</head>
+<body>
+	<input onkeydown=msgBoasVindasOKD()>
+
+	<input onkeypress=msgBoasVindasOKP()>
+
+	<input onkeyup=msgBoasVindasOKU()>
+
+
+</body>
+</html>

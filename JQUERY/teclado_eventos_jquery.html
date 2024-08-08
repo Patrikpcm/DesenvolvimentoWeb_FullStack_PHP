@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	
+		<title>JQUERY - EVENTOS TECLADO</title>
+	
+		<script src="jquery-3.6.0.js"></script>
+	
+		<script type="text/javascript">
+	
+			$(document).ready(function(){
+				
+				//keydown
+				//keypress
+				//keyup
+
+			//	$('#campo1').keydown( function(){alert('Botão foi apertado');});
+
+			//	$('#campo1').keypress( function(){alert('Botão foi pressionado');});
+
+				$('#campo1').keyup( function(){alert('Botão foi solto');});
+
+			});
+
+		</script>
+
+	</head>
+	<body>
+		<input id="campo1" type="text" />
+	</body>
+</html>

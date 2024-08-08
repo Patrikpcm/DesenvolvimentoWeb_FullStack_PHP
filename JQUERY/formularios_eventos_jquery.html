@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	
+		<title>JQUERY - EVENTOS FORMULARIO</title>
+	
+		<script src="jquery-3.6.0.js"></script>
+	
+		<script type="text/javascript">
+	
+			$(document).ready(function(){
+				
+				//Focus
+				//Blur
+				//Change
+
+			//	$('#campo1').focus( function(){alert('Elemento foi focado');});
+
+			//	$('#campo1').blur( function(){alert('Elemento perdeu o foco');});
+
+			//elementos focus e blur funcionam com <input>
+
+				$('.campo1').change( function(){alert('Elemento foi modificado');});
+
+			//elemento change funciona com <select>
+		
+			});
+
+		</script>
+
+	</head>
+	<body>
+	 	<select class="campo1">
+	 		<option value="1">Primeira opção</option>
+	 		<option value="2">Segunda opção</option>
+	 	</select>
+
+
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Eventos - Mouse</title>
+
+	<script type="text/javascript">
+		//onclick
+		//ondblclick
+		//onmousedown
+		//onmouseover
+		//onmouseout
+
+
+		//onclick
+		function msgBoasVindas(){
+			alert('Bem vindo ao meu site');
+		}
+
+		//ondblclick
+		function msgBoasVindasDBL(){
+			alert('Bem vindo ao meu site - Double click');
+		}
+
+		//onmousedown
+		function msgBoasVindasOMD(){
+			alert('Bem vindo ao meu site - OnMouseDown');
+		}
+
+		//onmouseover
+		function msgBoasVindasMover(){
+			alert('Bem vindo ao meu site - Mouse Over');
+		}
+
+		//onmouseout
+		function msgBoasVindasMout(){
+			alert('Bem vindo ao meu site - Mouse Out');
+		}
+	</script>
+</head>
+<body>
+
+	<div onclick="msgBoasVindas()" style="text-align: center; background: #CCC; height: 150px; width: 150px;">Click </div>
+
+	<div ondblclick="msgBoasVindasDBL()" style="margin-top:10px;  background: #CCC; height: 150px; width: 150px;">Double Click</div>
+
+	<div onmousedown="msgBoasVindasOMD()" style="margin-top:10px;  background: #CCC; height: 150px; width: 150px;">OnMouseDOwn</div>
+
+	<div onmouseover="msgBoasVindasMover()" style="margin-top:10px;  background: #CCC; height: 150px; width: 150px;">MouseOver</div>
+
+	<div onmouseout="msgBoasVindasMout()" style="margin-top:10px;  background: #CCC; height: 150px; width: 150px;">MouseOut</div>
+
+</body>
+</html>

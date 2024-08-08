@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <title>Barra de navegacao em Bootstrap</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="estilo.css" rel="stylesheet">
+   
+  </head>
+  <body>
+   
+     <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collpased" data-toggle="collapse" data-target="#barra-navegacao">
+              <span class="sr-only">Alternar Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">LOGO</a>
+          
+          </div>
+
+          <div class="collapse navbar-collapse" id="barra-navegacao">
+            <ul class="nav navbar-nav navbar-right">
+              <li> <a href="#">Home</a> </li>
+              <li> <a href="#">Empresa</a> </li>
+              <li> <a href="#">Clientes</a> </li>
+              <li> <a href="#">Produtos</a> </li>
+
+              <li class="dropdown"> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Minha conta <span class="caret"></span> </a> 
+                
+                <ul class="dropdown-menu">
+                  <li> <a href="#"> Editar</a></li>
+                  <li> <a href="#"> Logout</a></li>
+                </ul>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </nav>
+
+    <div class="container">     
+      <div>
+        <h1> Barra de Navegacao em Bootstrap</h1>
+      </div>
+               
+    </div> <!-- Container -->
+
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="../js/bootstrap.min.js"></script>
+
+
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
