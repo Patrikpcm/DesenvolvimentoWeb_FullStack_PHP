@@ -3,43 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array básico em PHP</title>
+    <title>Array multidimensional em PHP</title>
 </head>
 <body>
     <?php
-        //forma 1 de criação:
-        $lista_compras[1] = 'Feijão';
-        $lista_compras[2] = 'Arroz';
-        $lista_compras[3] = 'Batata';
-        $lista_compras[4] = 'Maionese';
-        $lista_compras[5] = 'Vina';
+        //tabuleiro de xadrez
+        $tabuleiro[8]['a'] = 'Torre Preta';
+        $tabuleiro[8]['b'] = 'Bispo Preta';
+        $tabuleiro[8]['c'] = 'Cavalo Preta';
+        $tabuleiro[8]['d'] = 'Rainha Preta';
+        $tabuleiro[8]['e'] = 'Rei Preta';
+        $tabuleiro[8]['f'] = 'Bispo Preta';
+        $tabuleiro[8]['g'] = 'Cavalo Preta';
+        $tabuleiro[8]['h'] = 'Torre Preta';
 
-        //forma 2 de crição:
-        $lista_compras2 = array(1 => 'Feijão', 2 => 'Arroz', 3 => 'Batata', 4 => 'Maionese', 5 => 'Vina');
+        $tabuleiro[7]['a'] = 'Peão Preta';
+        $tabuleiro[7]['b'] = 'Peão Preta';
+        $tabuleiro[7]['c'] = 'Peão Preta';
+        $tabuleiro[7]['d'] = 'Peão Preta';
+        $tabuleiro[7]['e'] = 'Peão Preta';
+        $tabuleiro[7]['f'] = 'Peão Preta';
+        $tabuleiro[7]['g'] = 'Peão Preta';
+        $tabuleiro[7]['h'] = 'Peão Preta';
+
+        $tabuleiro[1]['a'] = 'Torre Branca';
+        $tabuleiro[1]['b'] = 'Bispo Branca';
+        $tabuleiro[1]['c'] = 'Cavalo Branca';
+        $tabuleiro[1]['d'] = 'Rainha Branca';
+        $tabuleiro[1]['e'] = 'Rei Branca';
+        $tabuleiro[1]['f'] = 'Bispo Branca';
+        $tabuleiro[1]['g'] = 'Cavalo Branca';
+        $tabuleiro[1]['h'] = 'Torre Branca';
+
+        $tabuleiro[2]['a'] = 'Peão Branca';
+        $tabuleiro[2]['b'] = 'Peão Branca';
+        $tabuleiro[2]['c'] = 'Peão Branca';
+        $tabuleiro[2]['d'] = 'Peão Branca';
+        $tabuleiro[2]['e'] = 'Peão Branca';
+        $tabuleiro[2]['f'] = 'Peão Branca';
+        $tabuleiro[2]['g'] = 'Peão Branca';
+        $tabuleiro[2]['h'] = 'Peão Branca';
     
+        print_r($tabuleiro);
+        print '<br>';
+
+        print $tabuleiro[8]['d'];
+        print '<br>';
+
+        print $tabuleiro[8]['g'];
+        print '<br>';
+
+        print $tabuleiro[8]['b'];
+        print '<br>';
+
         /*
-        Para imprimir um array, as funções echo e print não funcionam pois não sabem interpretar.
-        Para imprimir arrays utilizamos as funções:
+        EM PHP É POSSÍVEL CRIAR ARRAYS DE MULTIPLAS DIMENSOES
         */
-        var_dump($lista_compras); //saída mais complexa(com mais informações a respeito do array) 
-        echo('<br>');
-
-        print_r($lista_compras2); //saída mais simples apenas com uma relação índice => valor
-        echo('<br>');
-
-        echo $lista_compras[2]; //dessa forma podemos imprimir com echo, passando o índice
-        echo('<br>');
-        /*
-        EM PHP NÃO NECESSÁRIAMENTE OS ÍNDICES PRECISAM SER NÚMEROS, ELES PODEM CONTER
-        VALORES ALFANUMÉRICOS, MISTURADOS, INCLUSIVE.
-        */
-        $pecas['a'] = 'Parafuso';
-        $pecas['b'] = 'Parachoque';
-        $pecas[3] = 'Lanterna';
-        $pecas[4] = 'Volante';
-        $pecas[5] = 'Polia';
-
-        var_dump($pecas);
+        $dimensao[1][1] = array([1][1]=>array('...')); //E assim sucessivamente
     ?>
 </body>
 </html>
