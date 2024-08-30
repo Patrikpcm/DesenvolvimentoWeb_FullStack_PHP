@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Ajax fácil com Javascript Puro</title>
+		
+		<!-- bootstrap - link cdn -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
+        <script type="text/javascript">
+
+            var httpRequest; //Variável vazia e criada fora do escopo da função fazerRequisicao para que também possa ser usada em situaçãoRequisicao
+
+            function fazerRequisicao(url, destino){
+
+                //quando eu fizer a requisição, um gif de carregamento é inserido.
+                document.getElementById(destino).innerHTML = "<center><img src='loader.gif'></center>";
+
+                if(window.XMLHttpRequest){ //tentativa de criação do objeto XMLHttpRequest
+                    httpRequest = new XMLHttpRequest(); //funciona em navegadores mais novos
+                }else if(window.ActiveXObject){ //caso não instâncie, ele ira tentar verificar se o objeto window possui a propriedade ActiveXObject (navegadores mais antigos do IE).
+                    try{
+                        //tentamos criar o objeto
+                        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+
+                    }catch(e){
+                        //caso falhe, realiza uma nova tentativa mas com Microsoft.XMLHTTP
+                        try{
+
+                            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+
+                        }catch(e){
+                            //caso as tentativas todas falhem, apresenta um erro.
+                            alert("Impossível instanciar o objeto XMLHttpRequest para esse navegador/versão");
+
+                        }
+
+                    }
+                }
+
+                //verifica se a variável é inválida (objeto não foi criado)
+                if(!httpRequest){
+                    alert("Erro ao tentar criar uma instância do objeto XMLHttpRequest");
+                    return false;
+                }
+                //se a função chegou até aqui, o objeto foi criado.
+
+
+                httpRequest.onreadystatechange = situacaoRequisicao;
+
+                httpRequest.open("GET", url);
+                httpRequest.send();
+
+            }//fim da função fazerRequisição
+
+            function situacaoRequisicao(){ //função que avalia os status da requisição
+                /* 
+                readyRequest = 1 - Cabeçalho criado mas não disparado
+                readyRequest = 4 - Requisição feita e entrega, o que fazer?
+                */
+                if(httpRequest.readyState == 4){
+                    
+                    /*
+                    Se o status é 200, todas as validações já foram realizadas, verificou servidor, script, arquivos, etc
+                    isso pode ser verificado utilizando a função httpRequest.responseText 
+                    */
+                    //alert(httpRequest.responseText); //descomente essa função para analisar todas essas informações
+                    if(httpRequest.status == 200){
+                        //pegando o elemento pelo ID e inserindo o conteúdo de httpRequest com innerHTML
+                        document.getElementById('div_conteudo').innerHTML = httpRequest.responseText;
+
+                    }
+
+                }
+
+            }
+
+        </script>
+	
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+	    <nav class="navbar navbar-default navbar-static-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	        	<h3>Requisições síncronas e assíncronas</h3>
+	        </div>
+	      </div>
+	    </nav>
+
+
+	    <div class="container">
+
+	    	<div class="row">
+	    		<div class="col-md-4 center"></div>
+	    		<div class="col-md-4 center">
+                    <!--
+                    chamando a função com onclick e passando as páginas(conteúdos que desejo recuperar) e o local onde devem aparecer (id)
+                    -->
+	    			<a href="#" class="btn btn-primary" onclick="fazerRequisicao('pagina_1_conteudo.html', 'div_conteudo')">Página 1</a> 
+	    			<a href="#" class="btn btn-primary" onclick="fazerRequisicao('pagina_2_conteudo.html', 'div_conteudo')">Página 2</a>
+	    			<a href="#" class="btn btn-primary" onclick="fazerRequisicao('pagina_3_conteudo.html', 'div_conteudo')">Página 3</a>
+	    		</div>
+	    		<div class="col-md-4 center"></div>
+	    	</div>
+	    	
+	    	<br />
+	    	<div class="row">
+		    	<div class="col-md-1"></div>
+
+                <!--
+                Atravésd e httprequest eu faço a requisição da página e carrego ela nessa div,
+                por isso a necessidade de um id.
+                -->
+		    	<div class="col-md-10" id="div_conteudo"></div> 
+		    		
+				<div class="col-md-1"></div>
+			</div>
+
+		</div>	
+	</body>
+</html>

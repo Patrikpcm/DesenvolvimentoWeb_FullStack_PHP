@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Ajax fácil com JQuery</title>
+		
+		<!-- bootstrap - link cdn -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
+        <!--JQuery - link cdn -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.btn_carrega_conteudo').click(function(){ //disparando evento de click para cada elemento botão com a classe btn_carrega_conteudo
+                    var carrega_url = this.id;
+                    carrega_url = '../REQ_ASSINCRONA_JS_PURO/'+carrega_url+'_conteudo.html'; //concatenando meu id com o restante do nome das páginas que quero carregar
+
+                    $.ajax({ //ajax jquery requer alguns parâmetros os quais ele mesmo já realiza todas as tratativas
+                        url: carrega_url, //primeiro a url a ser carregada
+                        
+                        //a função url cria um parâmetro chamado DATA, que contém o conteúdo desejado nesse caso.
+                        success: function(data){ //segundo, o que fazer caso seja executado com sucesso. Nesse disparamos uma função para inserir o conteúdo no id
+                                  $('#div_conteudo').html(data);
+                                },
+                        
+                        //**** outras propriedades ****
+                        beforeSend: function(){
+                            //antes de carregar o conteúdo, altero a propriedade css da imagem para ser exibida
+                            $('#loader_gif').css({display:"block"});
+                        },
+
+                        complete: function(){
+                            //depois do conteúdo carregado eu altero novamento a propriedade css para a imagem ficar invisível
+                            $('#loader_gif').css({display:"none"});
+                        }
+                    });
+                })
+            });
+           
+        </script>
+	
+	</head>
+
+	<body>
+
+		<!-- Static navbar -->
+	    <nav class="navbar navbar-default navbar-static-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	        	<h3>Requisições síncronas e assíncronas - JQuery</h3>
+	        </div>
+	      </div>
+	    </nav>
+
+
+	    <div class="container">
+
+	    	<div class="row">
+	    		<div class="col-md-4 center"></div>
+	    		<div class="col-md-4 center">
+                    <!--
+                    Criando uma classe para ser chamada com JQuery
+                    criando um id para cada página
+                    -->
+	    			<a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_1">Página 1</a> 
+	    			<a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_2">Página 2</a>
+	    			<a href="#" class="btn btn-primary btn_carrega_conteudo" id="pagina_3">Página 3</a>
+	    		</div>
+	    		<div class="col-md-4 center"></div>
+	    	</div>
+	    	
+	    	<br />
+	    	<div class="row">
+		    	<div class="col-md-1"></div>
+
+                <!--
+                Atravésd e httprequest eu faço a requisição da página e carrego ela nessa div,
+                por isso a necessidade de um id.
+                -->
+		    	<div class="col-md-10" id="div_conteudo"></div> 
+                    <!--Deixamos a imagem de load já na div, mas invisível-->
+		    		<img src='../REQ_ASSINCRONA_JS_PURO/loader.gif' style="display: none;" id="loader_gif">
+				<div class="col-md-1"></div>
+			</div>
+
+		</div>	
+	</body>
+</html>
