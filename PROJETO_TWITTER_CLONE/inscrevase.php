@@ -1,3 +1,13 @@
+<?php
+	/*
+	O if ternário serve para que, caso a página seja acessada sem os dados de erro
+	no link, não seja gerado código de erro mesmo assim.
+	*/
+	$erro_usuario = isset($_GET['erro_usuario']) ? $_GET['erro_usuario'] : 0;
+	$erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -51,15 +61,23 @@
 				-->
 				<form method="post" action="registra_usuario.php" id="formCadastrarse"> 
 					<div class="form-group">
-						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
+						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="required">
+						<?php
+							if($erro_usuario)
+								echo '<font style="color:#FF0000">Esse nome de usuário já esta em uso.</font>';
+						?>
 					</div>
 
 					<div class="form-group">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
+						<?php
+							if($erro_usuario)
+								echo '<font style="color:#FF0000">O email informado já esta cadastrado.</font>';
+						?>
 					</div>
 					
 					<div class="form-group">
-						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="requiored">
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="required">
 					</div>
 					
 					<button type="submit" class="btn btn-primary form-control">Inscreva-se</button>

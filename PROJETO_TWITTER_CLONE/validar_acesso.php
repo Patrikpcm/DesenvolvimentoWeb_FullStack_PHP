@@ -1,12 +1,14 @@
 <?php
 
+    session_start();
+
     require_once('db.class.php');
 
-    $usuario = $__POST['usuario'];
-    $senha = $__POST['senha'];
+    $usuario = $_POST['usuario'];
+    $senha = md5($_POST['senha']);
 
     //criando a query sql que verifica se o usuário esta cadastrado no BD
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha";
+    $sql = "SELECT id, usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
     $objDb = new db();
     $link = $objDb->conecta_mysql();
@@ -29,11 +31,17 @@
                         da query no bd.
         */
         $dados_usuario = mysqli_fetch_array($resultado_id); //capturando informações de usuário em um array
-        var_dump($dados_usuario);
+        //var_dump($dados_usuario);
 
         //teste simples para verificar se o usuário existe
         if(isset($dados_usuario['usuario'])){ //isset verifica se uma variável esta ou não definida (tem valor diferente de null)
-            echo 'Usuário existe!';
+            //echo 'Usuário existe!';
+
+            //superglobal session recebendo informações de dados_usuário  
+            $_SESSION['usuario'] = $dados_usuario['usuario'];
+            $_SESSION['email'] = $dados_usuario['email'];
+            $_SESSION['id_usuario'] = $dados_usuario['id'];
+            header('Location: home.php');
         }
         else{
             header('Location: index.php?erro=1'); //função header força o redirecionamento para uma página

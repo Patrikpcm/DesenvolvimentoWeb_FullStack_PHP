@@ -1,6 +1,7 @@
 <?php
 	//area para recuperar o erro de falha de login
 	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+	$registrado = isset($_GET['registrado']) ? $_GET['registrado'] : 0;
 ?>
 
 <!DOCTYPE HTML>
@@ -64,7 +65,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="<?= $erro==1 ? 'open' : '' ?>"> <!--usando php para que em caso de erro o menu volte aberto. Usando tag curta do php forçamos a escrita de open dentro da classe caso o erro seja 1, caso contrário continua vazio-->
+	            <li class="<?= $erro==1 || $registrado==1 ? 'open' : '' ?>"> <!--usando php para que em caso de erro o menu volte aberto. Usando tag curta do php forçamos a escrita de open dentro da classe caso o erro seja 1, caso contrário continua vazio-->
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
@@ -90,6 +91,10 @@
 							<?php
 								if($erro == 1){
 									echo '<font color="#FF0000">Usuário ou senha inválidos</font> ';
+								}
+
+								if($registrado == 1){
+									echo '<font color="#0000CD">Bem vindo! Efetue login com suas credenciais.</font> ';
 								}
 							
 							?>

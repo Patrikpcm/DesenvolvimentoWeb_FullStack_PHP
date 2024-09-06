@@ -2,7 +2,7 @@
 //dados de conexão
 class db{
     //host  
-    private $host = 'localhost';
+    private $host = 'localhost:3306';
 
     //usuario
     private $usuario = 'twitterclone';
@@ -23,7 +23,7 @@ class db{
 
         //verificar se houve erro de conexão
         if(mysqli_connect_errno()){
-            echo 'Erro ao tentar se conectar com o banco de dados BD MYSQL: '.mysqli_connect_error();
+            echo 'Erro ao tentar se conectar com o banco de dados BD MySQL: '.mysqli_connect_error();
         }
 
         //depois de tudo criado, podemos retornar nossa variável de conexão
