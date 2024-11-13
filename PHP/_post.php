@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <form role="form" action="_detalhes_produtos.php" method="post"> <!--Passando o formulario para a página _get e recuperando as informações com get (link)-->
+                <form role="form" action="_detalhes_produtos.php" method="post"> <!--Passando o formulario para a página _post e recuperando as informações com post(fora do link)-->
                     <div>
                         <label for="Produto">Nome do Produto:</label>
                         <select class="form-control" name="id_produto" id="id_produto">
